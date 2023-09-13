@@ -1,5 +1,5 @@
-continuar = true
-dados = [] 
+continuar = true;
+dados = [];
 
 function cadastrarDoador() {
     let doador = {
@@ -7,15 +7,36 @@ function cadastrarDoador() {
         idade : prompt("Digite sua idade"),
         peso : prompt("Digite seu peso"),
         tipoSanguineo : prompt("Digite seu tipo sanguíneo")
-    }
-
-    dados.push(doador)
-    console.log(dados[dados.length -1])
+    };
+    
+    doador.tipoSanguineo.toUpperCase();
+    
+    dados.push(doador);
+    console.log(dados[dados.length -1]);
 }
 
-function listaDoadores() {    
-    dados.push(dados)
-    console.log(dados[dados.length -1]);
+function listaDoadores() { 
+    for (let i = 0; i < dados.length; i++) {
+        const lista = dados[i];
+
+    console.log(lista);
+        
+    }
+}
+
+function buscaTipoSanguineo() {
+    let busca = prompt("Qual seu tipo sanguíneo?");
+    
+    busca.toUpperCase();
+
+    if (busca == "A+") {
+        console.log(`O sangue tipo ${busca} pode receber doação do tipo:
+        A+, A-, O+ e O-.
+        
+        Os doadores desses tipos sanguíneos são:
+        
+        ${dados.length -1 === "A+" || "A-" || "O+" || "O-"}`)
+    }
 }
 
 function sair() {
