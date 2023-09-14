@@ -1,0 +1,21 @@
+1 - Algoritmo para trocar uma lâmpada
+
+ligar o disjuntor
+
+se a lâmpada acender
+então não precisa trocar
+
+se não acender
+desligar o dejuntor
+retirar a lampada queimada
+colocar a lâmpada nova
+então ligar o disjuntor para ver se está funcionando
+
+
+2 - Vir até o SENAC
+
+Ir para a parada de ônibus
+pegar o ônibus
+descer na parada mais próxima ao SENAC
+ir até o SENAC
+
