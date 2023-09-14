@@ -9,7 +9,18 @@ function cadastrarDoador() {
         tipoSanguineo : prompt("Digite seu tipo sanguíneo")
     };
     
-    doador.tipoSanguineo.toUpperCase();
+    let tiposSanguineos = [ "A+", "A-", "O+", "O-", "AB+", "AB-" ]
+    
+    for (let i = 0; i < tiposSanguineos.length; i++) {
+        const element = tiposSanguineos [i];
+        
+        while (doador.tipoSanguineo != element) {
+            
+            let tiposSanguineosAlt = prompt("Digite um tipo sanguíneo válido!")
+            doador.tipoSanguineo = tiposSanguineosAlt
+
+        } break
+    }
     
     dados.push(doador);
     console.log(dados[dados.length -1]);
@@ -19,13 +30,17 @@ function listaDoadores() {
     for (let i = 0; i < dados.length; i++) {
         const lista = dados[i];
 
-    console.log(lista);
+    alert(`===== LISTA DE DOADORES CADASTRADOS =====
+    Nome: ${lista.nome};
+    Idade: ${lista.idade} anos;
+    Peso: ${lista.peso} kg;
+    Tipo sanguíneo: ${lista.tipoSanguineo}.`);
         
     }
 }
 
 function buscaTipoSanguineo() {
-    let busca = prompt("Qual seu tipo sanguíneo?");
+    let busca = prompt("Qual tipo sanguíneo precisa de doação?");
     
     busca.toUpperCase();
 
