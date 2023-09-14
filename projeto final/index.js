@@ -38,18 +38,18 @@ function listaDoadores() {
 }
 
 function buscaTipoSanguineo() {
-    let busca = prompt("Qual tipo sanguíneo precisa de doação?");
-    
-    busca.toUpperCase();
+    tipoSanguineo = ""
 
-    if (busca == "A+") {
-        console.log(`O sangue tipo ${busca} pode receber doação do tipo:
-        A+, A-, O+ e O-.
+    let tiposSanguineos = [ "A+", "A-", "O+", "O-", "AB+", "AB-" ]
+
+    while (tipoSanguineo === "") {
+        let tipo = prompt("Digite seu tipo sanguíneo (válido)").toUpperCase()
         
-        Os doadores desses tipos sanguíneos são:
-        
-        ${dados.length -1 === "A+" || "A-" || "O+" || "O-"}`)
-    }
+        if (tiposSanguineos.includes(tipo)) {
+            tipoSanguineo = tipo
+
+        }
+    }   
 }
 
 function sair() {
