@@ -4,22 +4,20 @@ dados = [];
 function cadastrarDoador() {
     let doador = {
         nome: prompt("Digite seu nome completo"),
-        idade : prompt("Digite sua idade"),
-        peso : prompt("Digite seu peso"),
-        tipoSanguineo : prompt("Digite seu tipo sanguíneo")
+        idade : Number(prompt("Digite sua idade")),
+        peso : Number(prompt("Digite seu peso")),
+        tipoSanguineo: ""
     };
-    
+
     let tiposSanguineos = [ "A+", "A-", "O+", "O-", "AB+", "AB-" ]
     
-    for (let i = 0; i < tiposSanguineos.length; i++) {
-        const element = tiposSanguineos [i];
-        
-        while (doador.tipoSanguineo != element) {
+    while (doador.tipoSanguineo === "") {
+        let tipo = prompt("Digite seu tipo sanguíneo (válido)").toUpperCase()
             
-            let tiposSanguineosAlt = prompt("Digite um tipo sanguíneo válido!")
-            doador.tipoSanguineo = tiposSanguineosAlt
+        if (tiposSanguineos.includes(tipo)) {
+            doador.tipoSanguineo = tipo
 
-        } break
+        }
     }
     
     dados.push(doador);
