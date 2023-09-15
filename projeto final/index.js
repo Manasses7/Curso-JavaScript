@@ -9,7 +9,7 @@ function cadastrarDoador() {
         tipoSanguineo: ""
     };
 
-    let tiposSanguineos = [ "A+", "A-", "O+", "O-", "AB+", "AB-" ]
+    let tiposSanguineos = [ "A+", "A-", "O+", "O-", "B+", "B-", "AB+", "AB-" ]
     
     while (doador.tipoSanguineo === "") {
         let tipo = prompt("Digite seu tipo sanguíneo (válido)").toUpperCase()
@@ -38,18 +38,51 @@ function listaDoadores() {
 }
 
 function buscaTipoSanguineo() {
-    tipoSanguineo = ""
+    function buscaTipoSanguineo() {
+        compativel = prompt("Insira seu tipo sanguíneo para buscarmos doações compatíveis")
+    
+        for (let dado of dados) {
 
-    let tiposSanguineos = [ "A+", "A-", "O+", "O-", "AB+", "AB-" ]
+            //doações para O-
+            if (dado.tipoSanguineo === compativel) {
+                console.log(dado);
+            }
 
-    while (tipoSanguineo === "") {
-        let tipo = prompt("Digite seu tipo sanguíneo (válido)").toUpperCase()
-        
-        if (tiposSanguineos.includes(tipo)) {
-            tipoSanguineo = tipo
+            //doações para O+ e A-
+            if (dado.tipoSanguineo === compativel || dados.tipoSanguineo === "O-") {
+                console.log(dado);
+            }
+
+            //doações para A-
+            //if (dado.tipoSanguineo === compativel || dados.tipoSanguineo === "O-") {
+            //    console.log(dado);
+            //}
+
+            //doações para A+
+            if (dado.tipoSanguineo === compativel || dados.tipoSanguineo === "O-" || dados.tipoSanguineo === "O+" || dados.tipoSanguineo === "A-") {
+                console.log(dado);
+            }
+
+            //doações para B-
+            if (dado.tipoSanguineo === compativel || dados.tipoSanguineo === "O-") {
+                console.log(dado);
+            }
+
+            //doações para B+
+            if (dado.tipoSanguineo === compativel || dados.tipoSanguineo === "O-" || dados.tipoSanguineo === "O+" || dados.tipoSanguineo === "B-") {
+                console.log(dado);
+            }
+            //doações para AB-
+            if (dado.tipoSanguineo === compativel || dados.tipoSanguineo === "A-" || dados.tipoSanguineo === "B-" || dados.tipoSanguineo === "O-") {
+                console.log(dado);
+            }
+            //doações para AB+
+            if (dado.tipoSanguineo === true) {
+                console.log(dado);
+            }
 
         }
-    }   
+    }
 }
 
 function sair() {
