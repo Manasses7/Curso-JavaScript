@@ -1,5 +1,5 @@
 continuar = true;
-dados = [];
+let dados = [];
 
 function cadastrarDoador() {
     let doador = {
@@ -38,53 +38,73 @@ function listaDoadores() {
 }
 
 function buscaTipoSanguineo() {
-    function buscaTipoSanguineo() {
-        compativel = prompt("Insira seu tipo sanguíneo para buscarmos doações compatíveis")
+    compativel = prompt("Insira seu tipo sanguíneo para buscarmos doações compatíveis").toUpperCase();
     
-        for (let dado of dados) {
+    for (let dado of dados) {
 
-            //doações para O-
-            if (dado.tipoSanguineo === compativel) {
-                console.log(dado);
-            }
-
-            //doações para O+ e A-
-            if (dado.tipoSanguineo === compativel || dados.tipoSanguineo === "O-") {
-                console.log(dado);
-            }
-
-            //doações para A-
-            //if (dado.tipoSanguineo === compativel || dados.tipoSanguineo === "O-") {
-            //    console.log(dado);
-            //}
-
-            //doações para A+
-            if (dado.tipoSanguineo === compativel || dados.tipoSanguineo === "O-" || dados.tipoSanguineo === "O+" || dados.tipoSanguineo === "A-") {
-                console.log(dado);
-            }
-
-            //doações para B-
-            if (dado.tipoSanguineo === compativel || dados.tipoSanguineo === "O-") {
-                console.log(dado);
-            }
-
-            //doações para B+
-            if (dado.tipoSanguineo === compativel || dados.tipoSanguineo === "O-" || dados.tipoSanguineo === "O+" || dados.tipoSanguineo === "B-") {
-                console.log(dado);
-            }
-            //doações para AB-
-            if (dado.tipoSanguineo === compativel || dados.tipoSanguineo === "A-" || dados.tipoSanguineo === "B-" || dados.tipoSanguineo === "O-") {
-                console.log(dado);
-            }
-            //doações para AB+
-            if (dado.tipoSanguineo === true) {
-                console.log(dado);
-            }
-
+        //doações para O-
+        if (dado.tipoSanguineo === compativel) {
+            alert(`===== LISTA DE DOADORES CADASTRADOS =====
+            Nome: ${dado.nome};
+            Idade: ${dado.idade} anos;
+            Peso: ${dado.peso} kg;
+            Tipo sanguíneo: ${dado.tipoSanguineo}.`)
         }
+            
+        //doações para O+ e A-
+        if (dado.tipoSanguineo === compativel || dado.tipoSanguineo === "O-") {
+            alert(`===== dado DE DOADORES CADASTRADOS =====
+            Nome: ${dado.nome};
+            Idade: ${dado.idade} anos;
+            Peso: ${dado.peso} kg;
+            Tipo sanguíneo: ${dado.tipoSanguineo}.`)
+        }
+                
+                //doações para A+
+        if (dado.tipoSanguineo === compativel || dado.tipoSanguineo === "O-" || dado.tipoSanguineo === "O+" || dado.tipoSanguineo === "A-") {
+            alert(`===== dado DE DOADORES CADASTRADOS =====
+            Nome: ${dado.nome};
+            Idade: ${dado.idade} anos;
+            Peso: ${dado.peso} kg;
+            Tipo sanguíneo: ${dado.tipoSanguineo}.`)
+        }
+                
+                //doações para B-
+        if (dado.tipoSanguineo === compativel || dado.tipoSanguineo === "O-") {
+            alert(`===== dado DE DOADORES CADASTRADOS =====
+            Nome: ${dado.nome};
+            Idade: ${dado.idade} anos;
+            Peso: ${dado.peso} kg;
+            Tipo sanguíneo: ${dado.tipoSanguineo}.`)
+        }
+        
+        //doações para B+
+        if (dado.tipoSanguineo === compativel || dado.tipoSanguineo === "O-" || dado.tipoSanguineo === "O+" || dado.tipoSanguineo === "B-") {
+            alert(`===== dado DE DOADORES CADASTRADOS =====
+            Nome: ${dado.nome};
+            Idade: ${dado.idade} anos;
+            Peso: ${dado.peso} kg;
+            Tipo sanguíneo: ${dado.tipoSanguineo}.`)
+        }
+                //doações para AB-
+        if (dado.tipoSanguineo === compativel || dado.tipoSanguineo === "A-" || dado.tipoSanguineo === "B-" || dado.tipoSanguineo === "O-") {
+            alert(`===== dado DE DOADORES CADASTRADOS =====
+            Nome: ${dado.nome};
+            Idade: ${dado.idade} anos;
+            Peso: ${dado.peso} kg;
+            Tipo sanguíneo: ${dado.tipoSanguineo}.`)
+        }
+                //doações para AB+
+        if (dado) {
+            alert(`===== dado DE DOADORES CADASTRADOS =====
+            Nome: ${dado.nome};
+            Idade: ${dado.idade} anos;
+            Peso: ${dado.peso} kg;
+            Tipo sanguíneo: ${dado.tipoSanguineo}.`)            
+        } break
     }
 }
-
+        
 function sair() {
     continuar = false
 }
