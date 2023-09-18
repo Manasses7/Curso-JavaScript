@@ -1,5 +1,53 @@
 continuar = true;
-let dados = [];
+let dados = [{
+    nome: "a",
+    idade : 20,
+    peso : 55,
+    tipoSanguineo: "a+"
+},
+{
+    nome: "a",
+    idade : 20,
+    peso : 55,
+    tipoSanguineo: "a-"
+},
+{
+    nome: "a",
+    idade : 20,
+    peso : 55,
+    tipoSanguineo: "b+"
+},
+{
+    nome: "a",
+    idade : 20,
+    peso : 55,
+    tipoSanguineo: "b-"
+},
+{
+    nome: "a",
+    idade : 20,
+    peso : 55,
+    tipoSanguineo: "ab+"
+},
+{
+    nome: "a",
+    idade : 20,
+    peso : 55,
+    tipoSanguineo: "ab-"
+},
+{
+    nome: "a",
+    idade : 20,
+    peso : 55,
+    tipoSanguineo: "o+"
+},
+{
+    nome: "a",
+    idade : 20,
+    peso : 55,
+    tipoSanguineo: "o-"
+}
+];
 
 function cadastrarDoador() {
     let doador = {
@@ -51,47 +99,58 @@ function buscaTipoSanguineo() {
         //doações para O-
         if (dado.tipoSanguineo === compativel) {
             console.log(mensagem);
-            break
+            
         }
             
         //doações para O+ e A-
-        if (compativel === "O+" || "A-" && (dado.tipoSanguineo === "O-")) {
+        else if ((compativel === "O+" || compativel === "A-") && dado.tipoSanguineo === "O-") {
             console.log(mensagem);
-            break
+            
         } 
                 
-                //doações para A+
-        if (compativel === "A+" && (dado.tipoSanguineo === "O-" || dado.tipoSanguineo === "O+" || dado.tipoSanguineo === "A-")) {
+        //doações para A+
+        else if ((compativel === "A+") && dado.tipoSanguineo === "O-" || dado.tipoSanguineo === "O+" || dado.tipoSanguineo === "A-") {
             console.log(mensagem);
-            break
+            
         }
                 
-                //doações para B-
-        if (compativel === "B-" && (dado.tipoSanguineo === "O-")) {
+        //doações para B-
+        else if ((compativel === "B-") && dado.tipoSanguineo === "O-") {
             console.log(mensagem);
-            break
+            
         }
         
         //doações para B+
-        if (compativel === "B+" && (dado.tipoSanguineo === "O-" || dado.tipoSanguineo === "O+" || dado.tipoSanguineo === "B-")) {
+        else if ((compativel === "B+") && dado.tipoSanguineo === "O-" || dado.tipoSanguineo === "O+" || dado.tipoSanguineo === "B-") {
             console.log(mensagem);
-            break
+            
         }
-                //doações para AB-
-        if (compativel === "AB-" && (dado.tipoSanguineo === "A-" || dado.tipoSanguineo === "B-" || dado.tipoSanguineo === "O-")) {
+        //doações para AB-
+                
+        else if ((compativel === "AB-") && dado.tipoSanguineo === "A-" || dado.tipoSanguineo === "B-" || dado.tipoSanguineo === "O-") {
             console.log(mensagem);
-            break
+            
         }
-                //doações para AB+
-        if (dado) {
+
+        //doações para AB+
+        else if (dado) {
             console.log(mensagem);
-            break
+            
         }
     }
 }
 
-function ultimaDoacao() {
-    
+function ultimaDoacao(ultimoElemento) {
+
+    dados = dados.pop();
+
+    ultimoElemento =  `===== ÚLTIMO DOADOR =====
+    Nome: ${dados.nome};
+    Idade: ${dados.idade} anos;
+    Peso: ${dados.peso} kg;
+    Tipo sanguíneo: ${dados.tipoSanguineo}.`
+   
+   alert(ultimoElemento);
 }
         
 function sair() {
@@ -123,7 +182,7 @@ while (continuar) {
             break;
                     
         case 4:
-            ultimaDoacao();
+            ultimaDoacao(dados);
             break;
                         
         case 5:
