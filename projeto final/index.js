@@ -42,67 +42,56 @@ function buscaTipoSanguineo() {
     
     for (let dado of dados) {
 
+        mensagem = `===== LISTA DE DOADORES CADASTRADOS =====
+        Nome: ${dado.nome};
+        Idade: ${dado.idade} anos;
+        Peso: ${dado.peso} kg;
+        Tipo sanguíneo: ${dado.tipoSanguineo}.`
+
         //doações para O-
         if (dado.tipoSanguineo === compativel) {
-            alert(`===== LISTA DE DOADORES CADASTRADOS =====
-            Nome: ${dado.nome};
-            Idade: ${dado.idade} anos;
-            Peso: ${dado.peso} kg;
-            Tipo sanguíneo: ${dado.tipoSanguineo}.`)
+            console.log(mensagem);
+            break
         }
             
         //doações para O+ e A-
-        if (dado.tipoSanguineo === compativel || dado.tipoSanguineo === "O-") {
-            alert(`===== dado DE DOADORES CADASTRADOS =====
-            Nome: ${dado.nome};
-            Idade: ${dado.idade} anos;
-            Peso: ${dado.peso} kg;
-            Tipo sanguíneo: ${dado.tipoSanguineo}.`)
-        }
+        if (compativel === "O+" || "A-" && (dado.tipoSanguineo === "O-")) {
+            console.log(mensagem);
+            break
+        } 
                 
                 //doações para A+
-        if (dado.tipoSanguineo === compativel || dado.tipoSanguineo === "O-" || dado.tipoSanguineo === "O+" || dado.tipoSanguineo === "A-") {
-            alert(`===== dado DE DOADORES CADASTRADOS =====
-            Nome: ${dado.nome};
-            Idade: ${dado.idade} anos;
-            Peso: ${dado.peso} kg;
-            Tipo sanguíneo: ${dado.tipoSanguineo}.`)
+        if (compativel === "A+" && (dado.tipoSanguineo === "O-" || dado.tipoSanguineo === "O+" || dado.tipoSanguineo === "A-")) {
+            console.log(mensagem);
+            break
         }
                 
                 //doações para B-
-        if (dado.tipoSanguineo === compativel || dado.tipoSanguineo === "O-") {
-            alert(`===== dado DE DOADORES CADASTRADOS =====
-            Nome: ${dado.nome};
-            Idade: ${dado.idade} anos;
-            Peso: ${dado.peso} kg;
-            Tipo sanguíneo: ${dado.tipoSanguineo}.`)
+        if (compativel === "B-" && (dado.tipoSanguineo === "O-")) {
+            console.log(mensagem);
+            break
         }
         
         //doações para B+
-        if (dado.tipoSanguineo === compativel || dado.tipoSanguineo === "O-" || dado.tipoSanguineo === "O+" || dado.tipoSanguineo === "B-") {
-            alert(`===== dado DE DOADORES CADASTRADOS =====
-            Nome: ${dado.nome};
-            Idade: ${dado.idade} anos;
-            Peso: ${dado.peso} kg;
-            Tipo sanguíneo: ${dado.tipoSanguineo}.`)
+        if (compativel === "B+" && (dado.tipoSanguineo === "O-" || dado.tipoSanguineo === "O+" || dado.tipoSanguineo === "B-")) {
+            console.log(mensagem);
+            break
         }
                 //doações para AB-
-        if (dado.tipoSanguineo === compativel || dado.tipoSanguineo === "A-" || dado.tipoSanguineo === "B-" || dado.tipoSanguineo === "O-") {
-            alert(`===== dado DE DOADORES CADASTRADOS =====
-            Nome: ${dado.nome};
-            Idade: ${dado.idade} anos;
-            Peso: ${dado.peso} kg;
-            Tipo sanguíneo: ${dado.tipoSanguineo}.`)
+        if (compativel === "AB-" && (dado.tipoSanguineo === "A-" || dado.tipoSanguineo === "B-" || dado.tipoSanguineo === "O-")) {
+            console.log(mensagem);
+            break
         }
                 //doações para AB+
         if (dado) {
-            alert(`===== dado DE DOADORES CADASTRADOS =====
-            Nome: ${dado.nome};
-            Idade: ${dado.idade} anos;
-            Peso: ${dado.peso} kg;
-            Tipo sanguíneo: ${dado.tipoSanguineo}.`)            
-        } break
+            console.log(mensagem);
+            break
+        }
     }
+}
+
+function ultimaDoacao() {
+    
 }
         
 function sair() {
