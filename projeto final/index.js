@@ -155,7 +155,7 @@ while (continuar) {
                         
         case 5:
             sair();
-            break
+            break;
                             
         default:
             break;
