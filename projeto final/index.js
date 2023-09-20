@@ -1,53 +1,5 @@
 continuar = true;
-let dados = [{
-    nome: "a",
-    idade : 20,
-    peso : 55,
-    tipoSanguineo: "a+"
-},
-{
-    nome: "a",
-    idade : 20,
-    peso : 55,
-    tipoSanguineo: "a-"
-},
-{
-    nome: "a",
-    idade : 20,
-    peso : 55,
-    tipoSanguineo: "b+"
-},
-{
-    nome: "a",
-    idade : 20,
-    peso : 55,
-    tipoSanguineo: "b-"
-},
-{
-    nome: "a",
-    idade : 20,
-    peso : 55,
-    tipoSanguineo: "ab+"
-},
-{
-    nome: "a",
-    idade : 20,
-    peso : 55,
-    tipoSanguineo: "ab-"
-},
-{
-    nome: "a",
-    idade : 20,
-    peso : 55,
-    tipoSanguineo: "o+"
-},
-{
-    nome: "a",
-    idade : 20,
-    peso : 55,
-    tipoSanguineo: "o-"
-}
-];
+let dados = [];
 
 function cadastrarDoador() {
     let doador = {
@@ -89,8 +41,9 @@ function buscaTipoSanguineo() {
     compativel = prompt("Insira seu tipo sanguíneo para buscarmos doações compatíveis").toUpperCase();
     
     for (let dado of dados) {
+        
 
-        mensagem = `===== LISTA DE DOADORES CADASTRADOS =====
+        mensagem = `===== LISTA DE DOADORES QUE VOCÊ PODE RECEBER SANGUE =====
         Nome: ${dado.nome};
         Idade: ${dado.idade} anos;
         Peso: ${dado.peso} kg;
@@ -98,42 +51,57 @@ function buscaTipoSanguineo() {
 
         //doações para O-
         if (dado.tipoSanguineo === compativel) {
-            console.log(mensagem);
             
+            console.log(mensagem);
+
         }
             
-        //doações para O+ e A-
-        else if ((compativel === "O+" || compativel === "A-") && dado.tipoSanguineo === "O-") {
-            console.log(mensagem);
-            
-        } 
-                
+        //doações para O+ ou A-
+        if ( compativel === "O+" || compativel === "A-") {
+
+            if (dado.tipoSanguineo === compativel || dado.tipoSanguineo === "O-" ) {
+                console.log(mensagem);
+            }
+        }
+       
+        
         //doações para A+
-        else if ((compativel === "A+") && dado.tipoSanguineo === "O-" || dado.tipoSanguineo === "O+" || dado.tipoSanguineo === "A-") {
-            console.log(mensagem);
-            
+        if ( compativel === "A+" ) {
+
+            if (dado.tipoSanguineo === compativel || dado.tipoSanguineo === "A-" || dado.tipoSanguineo === "O+" || dado.tipoSanguineo === "O-") {
+                console.log(mensagem);
+            }
         }
                 
         //doações para B-
-        else if ((compativel === "B-") && dado.tipoSanguineo === "O-") {
-            console.log(mensagem);
-            
+        if (compativel === "B-") {
+
+            if (dado.tipoSanguineo === compativel || dado.tipoSanguineo === "O-"){
+                console.log(mensagem);
+            }
+
         }
         
         //doações para B+
-        else if ((compativel === "B+") && dado.tipoSanguineo === "O-" || dado.tipoSanguineo === "O+" || dado.tipoSanguineo === "B-") {
-            console.log(mensagem);
-            
-        }
-        //doações para AB-
-                
-        else if ((compativel === "AB-") && dado.tipoSanguineo === "A-" || dado.tipoSanguineo === "B-" || dado.tipoSanguineo === "O-") {
-            console.log(mensagem);
+        if (compativel === "B+") {
+
+            if (dado.tipoSanguineo === compativel || dado.tipoSanguineo === "B-" || dado.tipoSanguineo === "O+" || dado.tipoSanguineo === "O-") {
+                console.log(mensagem);
+            }
             
         }
 
+        //doações para AB-
+                
+        if (compativel === "AB-") {
+            
+            if (dado.tipoSanguineo.includes("-")) {
+                console.log(mensagem);
+            }
+        }
+
         //doações para AB+
-        else if (dado) {
+        if (dado) {
             console.log(mensagem);
             
         }
