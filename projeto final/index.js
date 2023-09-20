@@ -1,6 +1,8 @@
 continuar = true;
 let dados = [];
 
+let tiposSanguineos = [ "A+", "A-", "O+", "O-", "B+", "B-", "AB+", "AB-" ]
+
 function cadastrarDoador() {
     let doador = {
         nome: prompt("Digite seu nome completo"),
@@ -9,7 +11,6 @@ function cadastrarDoador() {
         tipoSanguineo: ""
     };
 
-    let tiposSanguineos = [ "A+", "A-", "O+", "O-", "B+", "B-", "AB+", "AB-" ]
     
     while (doador.tipoSanguineo === "") {
         let tipo = prompt("Digite seu tipo sanguíneo (válido)").toUpperCase()
@@ -38,9 +39,10 @@ function listaDoadores() {
 }
 
 function buscaTipoSanguineo() {
-    compativel = prompt("Insira seu tipo sanguíneo para buscarmos doações compatíveis").toUpperCase();
+
     
     for (let dado of dados) {
+        compativel = prompt("Insira seu tipo sanguíneo para buscarmos doações compatíveis").toUpperCase();
         
 
         mensagem = `===== LISTA DE DOADORES QUE VOCÊ PODE RECEBER SANGUE =====
@@ -110,13 +112,13 @@ function buscaTipoSanguineo() {
 
 function ultimaDoacao(ultimoElemento) {
 
-    dados = dados.pop();
+    ultimoElemento = dados[dados.length -1]
 
     ultimoElemento =  `===== ÚLTIMO DOADOR =====
-    Nome: ${dados.nome};
-    Idade: ${dados.idade} anos;
-    Peso: ${dados.peso} kg;
-    Tipo sanguíneo: ${dados.tipoSanguineo}.`
+    Nome: ${ultimoElemento.nome};
+    Idade: ${ultimoElemento.idade} anos;
+    Peso: ${ultimoElemento.peso} kg;
+    Tipo sanguíneo: ${ultimoElemento.tipoSanguineo}.`
    
    alert(ultimoElemento);
 }
